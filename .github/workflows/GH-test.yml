@@ -27,5 +27,6 @@ jobs:
         run: |
           terraform -version
           echo here is the terraform version
+          terraform init
           terraform plan
           terraform fmt

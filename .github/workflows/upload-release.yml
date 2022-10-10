@@ -23,6 +23,5 @@ jobs:
           echo ${pwd}
        
       - name: Step 3 - Use the Upload Artifact GitHub Action
-        uses: actions/upload-artifact@v2
-        with:
-          path: ${{project-dir}}
+        run: gh release create ${{ github.ref }} --generate-notes
+        

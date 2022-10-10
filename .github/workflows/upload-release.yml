@@ -19,8 +19,6 @@ jobs:
       - name: getting project dir path
         run: |
           ls -la
-          project-dir = $(pwd)
-          echo ${pwd}
        
       - name: Step 3 - Use the Upload Artifact GitHub Action
         run: gh release create ${{ github.ref }} --generate-notes

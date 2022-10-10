@@ -3,7 +3,7 @@ on:
     tags:
       - 'v*'
 
-name: Create Release
+name: Release Artifacts
 
 jobs:
 
@@ -14,7 +14,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Create Release
-        run: gh release create ${{ github.ref }} --generate-notes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Step 3 - Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2

@@ -1,0 +1,29 @@
+name: Bump version
+on:
+  workflow_dispatch:
+
+    inputs:
+      version:
+        description: 'Semver type of new version (major / minor / patch)'
+        required: true
+        type: choice
+        options: 
+        - patch
+        - minor
+        - major
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out source
+      uses: actions/checkout@v2
+
+    - name: Setup Git
+      run: |
+        git config user.name 'uday-singh231'
+        git config user.email 'uday.singh0231@gmail.com'
+
+    - name: Push latest version
+      run: git push origin main --follow-tags

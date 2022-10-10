@@ -2,7 +2,8 @@ on:
   push:
     tags:
       - '*'
-
+  workflow_dispatch:
+  
 name: Release Artifacts
 
 jobs:
@@ -14,7 +15,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      - name: getting project dir path
+        run: |
+          ls -la
+          project-dir = $(pwd)
+          echo ${pwd}
+       
       - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with:
-          path: .
+          path: ${{project-dir}}

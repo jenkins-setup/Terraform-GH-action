@@ -1,4 +1,4 @@
-name: Bump version
+name: Create Release tag
 on:
   workflow_dispatch:
 
@@ -26,4 +26,4 @@ jobs:
         git config user.email 'uday.singh0231@gmail.com'
 
     - name: Push latest version
-      run: git push origin main --follow-tags
+      run: git push origin master --follow-tags

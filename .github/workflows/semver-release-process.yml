@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     if: github.event.pull_request.merged
-
+    
     steps:
       - name: Tagging
-        uses: K-Phoen/server-release-action@master
+        uses: K-Phoen/semver-release-action@master
         with:
           release_branch: master
         env:

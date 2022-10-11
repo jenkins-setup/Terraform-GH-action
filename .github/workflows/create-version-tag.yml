@@ -3,14 +3,10 @@ on:
   workflow_dispatch:
 
     inputs:
-      version:
-        description: 'Semver type of new version (major / minor / patch)'
+      tag_name:
+        description: 'enter the tag no'
         required: true
-        type: choice
-        options: 
-        - patch
-        - minor
-        - major
+        type: string
 
 jobs:
   create-tag:
@@ -20,10 +16,13 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
 
-    - name: Setup Git
-      run: |
-        git config user.name 'uday-singh231'
-        git config user.email 'uday.singh0231@gmail.com'
+    - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.event.inputs.tag_name }}
+          draft: false
+          prerelease: false
 
-    - name: Push latest version
-      run: git push origin master --follow-tags

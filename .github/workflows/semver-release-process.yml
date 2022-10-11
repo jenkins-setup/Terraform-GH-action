@@ -10,10 +10,10 @@ jobs:
 
     if: github.event.pull_request.merged
 
-  steps:
-    - name: Tagging
-      uses: K-Phoen/server-release-action@master
-      with:
-        release_branch: master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Tagging
+        uses: K-Phoen/server-release-action@master
+        with:
+          release_branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

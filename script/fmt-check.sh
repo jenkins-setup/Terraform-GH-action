@@ -2,10 +2,13 @@
 
 RET=0
 
-echo "$2"
+if [ $(terraform fmt -check=true) ]
+then
+    echo "Terraform fmt Check Failed. formatting required"
+    echo $(terraform fmt -check=true) 
+    RET=1    
+else
+    echo "Terraform fmt Check pass"
+fi
 
-printf "check Terraform fmt "
-echo "$1"
-echo "another repo name is: "
-echo "$2"
-    
+exit $RET

@@ -1,5 +1,5 @@
 provider "aws" {
-  region = local.region
+  region=local.region
 }
 
 locals {
@@ -10,7 +10,7 @@ locals {
   preview_partition = cidrsubnets(aws_vpc_ipam_preview_next_cidr.this.cidr, 2, 2, 2)
 
   tags = {
-    Example    = local.name
+    Example=local.name
     GithubRepo = "terraform-aws-vpc"
     GithubOrg  = "terraform-aws-modules"
   }

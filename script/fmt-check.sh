@@ -9,4 +9,3 @@ do
     echo "another repo name is: "
     echo "$2"
 done
-exit $RET

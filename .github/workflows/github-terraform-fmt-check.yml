@@ -9,5 +9,5 @@ jobs:
     name: Terraform-fmt lint
     runs-on: ubuntu-latest
     steps:
-    - uses: action/checkout@v2
+    - uses: actions/checkout@v2
     - run: script/fmt-check.sh "$GITHUB_SHA" "$GITHUB_REF"

@@ -2,12 +2,12 @@ name: Terraform fmt Check
 
 on:
   pull_request:
-    types: [open, reopen]
+  workflow_dispatch:
 
 jobs:
   lint:
     name: Terraform-fmt lint
     runs-on: ubuntu-latest
     steps:
-    - uses: action/checkout@v2
-    - run: script/fmt-check.sh "$GITHUB_SHA" "$GITHUB_REF"
+    - uses: actions/checkout@v2
+    - run: terraform fmt -check

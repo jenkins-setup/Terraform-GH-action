@@ -7,7 +7,13 @@ on:
 jobs:
   lint:
     name: Terraform-fmt lint
+    
     runs-on: ubuntu-latest
+    
     steps:
-    - uses: actions/checkout@v2
-    - run: sh script/fmt-check.sh
+    - name: git checkout
+      uses: actions/checkout@v2
+    
+    - name: terraform fmt
+      uses: dflook/terraform-fmt@v1
+      

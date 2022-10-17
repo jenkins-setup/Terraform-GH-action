@@ -13,7 +13,7 @@ jobs:
     - name: update semver tag
       id: semver_tag
       run: |
-        echo "::set-output name=TAG_NAME::$(/bin/bash ./semver_tag.sh)"
+        echo "::set-output name=TAG_NAME::$(sh ./semver_tag.sh)"
 
     - name: Create Release
       uses: actions/create-release@v1

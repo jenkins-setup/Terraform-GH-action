@@ -13,9 +13,12 @@ jobs:
     - name: update semver tag
       id: semver_tag
       run: |
-        echo "::set-output name=TAG_NAME::$(sh ./semver_tag.sh)"
+        tag=sh ./semver_tag.sh
+        echo $tag 
+        echo "::set-output name=TAG_NAME::$tag"
 
     - name: Create Release
+      run: echo ${{ steps.semver_tag.outputs.TAG_NAME }}
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token

@@ -2,12 +2,6 @@ name: Create Release tag
 on:
   workflow_dispatch:
 
-    inputs:
-      tag_name:
-        description: 'enter the tag no'
-        required: true
-        type: string
-
 jobs:
   create-tag:
     runs-on: ubuntu-latest
@@ -16,9 +10,11 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
 
-    -name: update semver tag
-     id: semver_tag
-     run: chmod 755 semver_tag.sh && ./semver_tag.sh >> $GITHUB_OUTPUT
+    - name: update semver tag
+      id: semver_tag
+      run: |
+        chmod 755 semver_tag.sh
+        ./semver_tag.sh >> $GITHUB_OUTPUT
 
     - name: Create Release
       run: echo ${{ steps.semver_tag.outputs.tag }}

@@ -15,4 +15,4 @@ jobs:
       uses: actions/checkout@v2
     
     - name: terraform fmt
-      run: terraform fmt -check=true -write=false
+      uses: dflook/terraform-fmt-check@v1

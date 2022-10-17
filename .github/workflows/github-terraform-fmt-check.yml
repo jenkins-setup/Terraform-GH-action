@@ -16,4 +16,3 @@ jobs:
     
     - name: terraform fmt
       uses: dflook/terraform-fmt@v1
-      

@@ -4,13 +4,13 @@ output "vpc_id" {
 }
 
 output "vpc_arn" {
-  description = "The ARN of the VPC" 
-  value=module.vpc_ipam_set_netmask.vpc_arn
-  }
+  description = "The ARN of the VPC"
+  value       = module.vpc_ipam_set_netmask.vpc_arn
+}
 
 output "vpc_cidr_block" {
   description = "The CIDR block of the VPC"
-  value=module.vpc_ipam_set_netmask.vpc_cidr_block
+  value       = module.vpc_ipam_set_netmask.vpc_cidr_block
 }
 
 output "default_security_group_id" {

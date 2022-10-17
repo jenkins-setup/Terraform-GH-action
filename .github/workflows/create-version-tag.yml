@@ -13,8 +13,7 @@ jobs:
     - name: update semver tag
       id: semver_tag
       run: |
-        tag=$(/bin/bash ./semver_tag.sh)
-        echo $tag >> $GITHUB_OUTPUT
+        echo "::set-output name=TAG_NAME::$(/bin/bash ./semver_tag.sh)"
 
     - name: Create Release
-      run: echo ${{ steps.semver_tag.outputs.tag }}
+      run: echo ${{ steps.semver_tag.outputs.TAG_NAME }}

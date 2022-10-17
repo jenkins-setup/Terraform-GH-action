@@ -16,9 +16,9 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
 
-    -name: update semver tag
-     id: semver_tag
-     run: sh ./semver_tag.sh
+    - name: update semver tag
+      id: semver_tag
+      run: sh ./semver_tag.sh
 
     - name: Create Release
       run: echo ${{ steps.semver_tag.outputs.tag }}

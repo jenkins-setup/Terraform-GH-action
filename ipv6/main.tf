@@ -33,7 +33,7 @@ module "vpc" {
   create_database_subnet_route_table     = true
   create_database_internet_gateway_route = true
 
-  enable_ipv6 = true
+  enable_ipv6                     = true
   assign_ipv6_address_on_creation = true
 
   private_subnet_assign_ipv6_address_on_creation = false

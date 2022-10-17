@@ -13,6 +13,7 @@ jobs:
     - name: update semver tag
       id: semver_tag
       run: |
+        ls -lah && chmod 755 semver_tag.sh
         tag=sh ./semver_tag.sh
         echo $tag 
         echo "::set-output name=TAG_NAME::$tag"

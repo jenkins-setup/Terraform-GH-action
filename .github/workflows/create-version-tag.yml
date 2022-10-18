@@ -1,5 +1,7 @@
 name: Create Release tag
 on:
+  push:
+    branches: [ "*" ]
   workflow_dispatch:
 
 jobs:
@@ -12,7 +14,8 @@ jobs:
 
     - name: get tag
       run: |
-        git tag --list
+        var="hello there"
+        echo $var
       
     - name: update semver tag
       id: semver_tag

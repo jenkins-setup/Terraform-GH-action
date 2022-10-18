@@ -16,10 +16,8 @@ jobs:
     - name: update semver tag
       id: semver_tag
       run: |
-        echo "::set-output name=TAG_NAME::$(sh ./semver_tag.sh)"
-        
-    - name: debug
-      run: echo ${{ steps.semver_tag.outputs.TAG_NAME }}
+        chmod 755 semver_tag.sh && ls -lah
+        echo "::set-output name=TAG_NAME::$(bash ./semver_tag.sh)"
 
     - name: Create Release
       uses: actions/create-release@v1

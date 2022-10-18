@@ -18,7 +18,9 @@ jobs:
 
     -name: update semver tag
      id: semver_tag
-     run: chmod 755 semver_tag.sh && ./semver_tag.sh >> $GITHUB_OUTPUT
+     run: |
+       chmod 755 semver_tag.sh && ls -lah
+       echo "::set-output name=TAG_NAME::$(bash ./semver_tag.sh)"
 
     - name: Create Release
       run: echo ${{ steps.semver_tag.outputs.tag }}

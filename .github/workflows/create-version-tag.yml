@@ -12,7 +12,7 @@ jobs:
 
     - name: get tag
       run: |
-        var=$(git tag --sort=-v:refname)
+        var=$(/usr/bin/git tag --sort=-v:refname)
         echo "$var"
       
     - name: update semver tag

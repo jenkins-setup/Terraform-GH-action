@@ -2,12 +2,6 @@ name: Create Release tag
 on:
   workflow_dispatch:
 
-    inputs:
-      tag_name:
-        description: 'enter the tag no'
-        required: true
-        type: string
-
 jobs:
   create-tag:
     runs-on: ubuntu-latest

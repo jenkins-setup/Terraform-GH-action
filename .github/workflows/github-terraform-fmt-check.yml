@@ -2,7 +2,7 @@ name: Terraform fmt Check
 
 on:
   pull_request:
-  workflow_dispatch:
+    types: [opened, reopened]
 
 jobs:
   lint:
@@ -14,5 +14,5 @@ jobs:
     - name: git checkout
       uses: actions/checkout@v2
     
-    - name: terraform fmt
+    - name: terraform fmt check
       uses: dflook/terraform-fmt-check@v1

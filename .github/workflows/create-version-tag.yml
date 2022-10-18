@@ -1,30 +1,21 @@
 name: Create Release tag
 on:
-  push:
-    branches: [ "*" ]
-  workflow_dispatch:
+   pull_request:
+    types: closed
 
 jobs:
   create-tag:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out source
+    - name: Checkout source code
       uses: actions/checkout@v2
-
-    - name: get tag
-      run: |
-        var=$(git fetch --all && git tag -l)
-        echo "$var"
       
     - name: update semver tag
       id: semver_tag
       run: |
         chmod 755 semver_tag.sh && ls -lah
-        echo "::set-output name=TAG_NAME::$(bash ./semver_tag.sh)"
-        
-    - name: echo TAG_NAME
-      run: echo ${{ steps.semver_tag.outputs.TAG_NAME }}
+        echo "::set-output name=TAG_NAME::$(${{ github.workspace }}/semver_tag.sh)"
 
     - name: Create Release
       uses: actions/create-release@v1

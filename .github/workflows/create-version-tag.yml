@@ -14,7 +14,7 @@ jobs:
 
     - name: get tag
       run: |
-        var="hello there"
+        var=$(ls -la)
         echo "$var"
       
     - name: update semver tag

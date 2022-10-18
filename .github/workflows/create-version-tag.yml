@@ -14,7 +14,7 @@ jobs:
 
     - name: get tag
       run: |
-        var=$(ls -la)
+        var=$(git remote -v)
         echo "$var"
       
     - name: update semver tag

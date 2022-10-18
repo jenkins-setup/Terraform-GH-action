@@ -10,7 +10,7 @@
         type="patch"
     fi
 
-var=1.0.1
+var=$(git tag --sort=-v:refname | head -1)
 
 IFS=. read -r major minor patch <<EOF
 $var

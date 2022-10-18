@@ -10,9 +10,9 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
 
-    -name: update semver tag
-     id: semver_tag
-     run: |
+    - name: update semver tag
+      id: semver_tag
+      run: |
        chmod 755 semver_tag.sh && ls -lah
        echo "::set-output name=TAG_NAME::$(bash ./semver_tag.sh)"
 

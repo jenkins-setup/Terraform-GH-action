@@ -1,16 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
-    if [[ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "minor") ]]
+    if [ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "minor") ]
     then
         type="minor"
-    elif [[ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "major") ]]
+    elif [ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "major") ]
     then
         type="major"
     else
         type="patch"
     fi
 
-var=$(git tag --sort=-v:refname | head -1)
+var=1.0.1
 
 IFS=. read -r major minor patch <<EOF
 $var

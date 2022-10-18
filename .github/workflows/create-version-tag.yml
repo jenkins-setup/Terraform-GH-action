@@ -10,11 +10,21 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
 
+    - name: get tag
+      run: git tag --sort=-v:refname | head -1
+      
     - name: update semver tag
       id: semver_tag
       run: |
-       chmod 755 semver_tag.sh && ls -lah
-       echo "::set-output name=TAG_NAME::$(bash ./semver_tag.sh)"
+        chmod 755 semver_tag.sh && ls -lah
+        echo "::set-output name=TAG_NAME::$(bash ./semver_tag.sh)"
 
     - name: Create Release
-      run: echo ${{ steps.semver_tag.outputs.tag }}
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ steps.semver_tag.outputs.TAG_NAME }}
+        release_name: ${{ steps.semver_tag.outputs.TAG_NAME }}
+        draft: false
+        prerelease: false

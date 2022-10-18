@@ -15,7 +15,7 @@ jobs:
     - name: get tag
       run: |
         var="hello there"
-        echo $var
+        echo "$var"
       
     - name: update semver tag
       id: semver_tag

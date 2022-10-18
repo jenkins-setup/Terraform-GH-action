@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-    if [ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "minor") ]
+    if [[ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "minor") ]]
     then
         type="minor"
-    elif [ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "major") ]
+    elif [[ ! -z $( git show -s --format=%s | awk '{print tolower($0)}' | grep "major") ]]
     then
         type="major"
     else
@@ -30,4 +30,4 @@ minor)
     ;;
 esac
 
-echo $tag
+echo "$tag"

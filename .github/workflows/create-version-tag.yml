@@ -10,13 +10,13 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
 
+    - name: get tag
+      run: git tag --sort=-v:refname | head -1
+      
     - name: update semver tag
       id: semver_tag
       run: |
-        ls -lah && chmod 755 semver_tag.sh
-        tag=sh ./semver_tag.sh
-        echo $tag 
-        echo "::set-output name=TAG_NAME::$tag"
+        echo "::set-output name=TAG_NAME::$(sh ./semver_tag.sh)"
         
     - name: debug
       run: echo ${{ steps.semver_tag.outputs.TAG_NAME }}

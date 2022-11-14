@@ -25,6 +25,5 @@ jobs:
     - name: Run on Fail fmt
       if: failure()
       run: |
-        echo "PR is labeled as 'do not merge'"
         echo "fmt failed fix the terraform files"
         exit 1

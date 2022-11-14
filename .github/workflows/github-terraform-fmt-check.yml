@@ -14,8 +14,13 @@ jobs:
     - name: git checkout
       uses: actions/checkout@v2
     
-    - name: terraform fmt check
-      uses: dflook/terraform-fmt-check@v1
+    - name: Setup terraform env
+      uses: active/setup-node@v1
+      uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform Check
+      run: |
+        terraform fmt -check -recursive
       
     - name: Run on Fail fmt
       if: failure()

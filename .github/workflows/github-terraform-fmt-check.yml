@@ -25,5 +25,5 @@ jobs:
     - name: Run on Fail fmt
       if: failure()
       run: |
-        echo "fmt failed fix the terraform files"
+        echo "tf fmt failed fix the terraform files"
         exit 1

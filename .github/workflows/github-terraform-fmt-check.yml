@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Setup terraform env
-      uses: active/setup-node@v1
+      
       uses: hashicorp/setup-terraform@v2
 
     - name: Terraform Check

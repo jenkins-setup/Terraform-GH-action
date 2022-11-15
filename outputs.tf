@@ -15,7 +15,7 @@ output "vpc_cidr_block" {
 
 output "default_security_group_id" {
   description = "The ID of the security group created by default on VPC creation"
-  value  = try(aws_vpc.this[0].default_security_group_id, "")
+  value       = try(aws_vpc.this[0].default_security_group_id, "")
 }
 
 output "default_network_acl_id" {

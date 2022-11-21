@@ -21,9 +21,3 @@ jobs:
     - name: Terraform fmt Check
       run: |
         terraform fmt -check -recursive
-      
-    - name: Run on Fail fmt
-      if: failure()
-      run: |
-        echo "tf fmt failed fix the terraform files"
-        exit 1

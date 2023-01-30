@@ -14,16 +14,10 @@ jobs:
     - name: git checkout
       uses: actions/checkout@v2
     
-    - name: Setup terraform env
+    - name: Setup Terraform env
       
       uses: hashicorp/setup-terraform@v2
 
     - name: Terraform fmt Check
       run: |
         terraform fmt -check -recursive
-      
-    - name: Run on Fail fmt
-      if: failure()
-      run: |
-        echo "tf fmt failed fix the terraform files"
-        exit 1

@@ -2,6 +2,7 @@ name: Create Release tag
 on:
    pull_request:
     types: closed
+   workflow_dispatch:
 
 env:
    PR_NUMBER: ${{ github.event.number }}

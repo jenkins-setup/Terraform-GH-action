@@ -2,6 +2,7 @@ name: Create Release tag
 on:
    pull_request:
     types: closed
+   push:
    workflow_dispatch:
 
 env:
@@ -9,7 +10,7 @@ env:
 
 jobs:
   create-tag:
-    if: github.event.pull_request.merged == true
+    
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +20,5 @@ jobs:
     - name: update semver tag
       id: semver_tag
       run: |
-        echo "the pr number is"
-        echo $PR_NUMBER
+        chmod 755 semver_tag.sh
+        echo "::set-output name=TAG_NAME::$(${{ github.workspace }}/semver_tag.sh $PR_NUMBER)"

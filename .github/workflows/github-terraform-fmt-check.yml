@@ -20,4 +20,5 @@ jobs:
 
     - name: Terraform fmt Check
       run: |
+        echo "testing terraform formatting"
         terraform fmt -check -recursive

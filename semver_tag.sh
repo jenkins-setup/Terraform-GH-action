@@ -11,6 +11,8 @@ if [[ $desc =~ .*"[x] Minor".* ]]
     else
         type="patch"
     fi
+    echo $desc
+    echo $type
 
 var=$(git fetch -t > /dev/null 2>&1 && git tag --sort=-v:refname | head -1)
 

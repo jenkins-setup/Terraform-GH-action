@@ -2,13 +2,13 @@ name: Create Release tag
 on:
    pull_request:
     types: closed
-   push:
 
 env:
-   PR_NUMBER: "39"
+   PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   create-tag:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:

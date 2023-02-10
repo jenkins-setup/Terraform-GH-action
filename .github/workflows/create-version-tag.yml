@@ -6,7 +6,7 @@ on:
    workflow_dispatch:
 
 env:
-   PR_NUMBER: "40"
+   PR_NUMBER: "39"
 
 jobs:
   create-tag:

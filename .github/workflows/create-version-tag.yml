@@ -21,4 +21,4 @@ jobs:
       id: semver_tag
       run: |
         chmod 755 semver_tag.sh
-        echo "::set-output name=TAG_NAME::$(${{ github.workspace }}/semver_tag.sh $PR_NUMBER)"
+        tag=$(${{ github.workspace }}/semver_tag.sh)

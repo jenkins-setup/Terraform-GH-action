@@ -33,7 +33,7 @@ Sometimes it is handy to keep the same IPs even after the VPC is destroyed and r
 To that end, it is possible to assign existing IPs to the NAT Gateways.
 This prevents the destruction of the VPC from releasing those IPs, while making it possible that a re-created VPC uses the same IPs.
 
-To achieve this, allocate the IPs outside the VPC module declaration.
+To achieve this, allocate the IPs outside the VPC module declaration ouk.
 
 ```hcl
 resource "aws_eip" "nat" {

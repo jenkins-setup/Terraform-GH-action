@@ -3,14 +3,12 @@ on:
    pull_request:
     types: closed
    push:
-   workflow_dispatch:
 
 env:
    PR_NUMBER: "39"
 
 jobs:
   create-tag:
-    
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +22,7 @@ jobs:
         tag=$(${{ github.workspace }}/semver_tag.sh)
         echo $PR_NUMBER
         echo "tag is $tag"
+
+    - name: Create Release
+      run: |
+        echo ${{ steps.semver_tag.outputs.TAG_NAME }}

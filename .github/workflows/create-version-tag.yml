@@ -19,9 +19,7 @@ jobs:
       id: semver_tag
       run: |
         chmod 755 semver_tag.sh
-        tag=$(${{ github.workspace }}/semver_tag.sh)
-        echo $PR_NUMBER
-        echo "tag is $tag"
+        echo "::set-output name=TAG_NAME::$(${{ github.workspace }}/semver_tag.sh)"
 
     - name: Create Release
       run: |

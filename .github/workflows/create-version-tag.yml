@@ -6,7 +6,7 @@ on:
    workflow_dispatch:
 
 env:
-   PR_NUMBER: ${{ github.event.number }}
+   PR_NUMBER: "40"
 
 jobs:
   create-tag:

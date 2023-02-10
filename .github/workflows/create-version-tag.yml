@@ -23,3 +23,4 @@ jobs:
         chmod 755 semver_tag.sh
         tag=$(${{ github.workspace }}/semver_tag.sh)
         echo $PR_NUMBER
+        echo "tag is $tag"

@@ -2,12 +2,12 @@
 
 desc=$(curl https://api.github.com/repos/jenkins-setup/Terraform-GH-action/pulls/39 | jq '.body')
 
-if [[ $desc =~ .*"[x] Minor".* ]]
-    then
-        type="minor"
-    elif [[ $desc =~ .*"[x] Major".* ]]
+if [[ $desc =~ .*"[x] Major".* ]]
     then
         type="major"
+    elif [[ $desc =~ .*"[x] Minor".* ]]
+    then
+        type="minor"
     else
         type="patch"
     fi

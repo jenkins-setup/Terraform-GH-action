@@ -1,6 +1,6 @@
 name: Create Release tag
 on:
-   pull_request:              
+   pull_request:
     types:
     - closed
     branches:

@@ -1,7 +1,10 @@
 name: Create Release tag
 on:
-   pull_request:
-    types: closed
+   pull_request:              
+    types:
+    - closed
+    branches:
+    - master
 
 env:
    PR_NUMBER: ${{ github.event.number }}

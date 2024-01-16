@@ -3,8 +3,6 @@ on:
    pull_request:
     types:
     - closed
-    branches:
-    - master
 
 env:
    PR_NUMBER: ${{ github.event.number }}
@@ -23,7 +21,7 @@ jobs:
       run: |
         chmod 755 semver_tag.sh
         echo "TAG_NAME=$(${{ github.workspace }}/semver_tag.sh)" >> $GITHUB_OUTPUT
-        echo "the recent pull reuqest is $PR_NUMBER"
+        echo "the pull reuqest is $PR_NUMBER"
 
     - name: Create Release
       run: |

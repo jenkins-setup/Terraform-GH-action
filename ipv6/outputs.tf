@@ -14,7 +14,7 @@ output "vpc_cidr_block" {
 }
 
 output "default_security_group_id" {
-  description = "The ID of the security group created by default on VPC creation"
+  description = "The ID of the security group "
   value       = module.vpc.default_security_group_id
 }
 
